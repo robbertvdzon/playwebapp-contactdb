@@ -1,0 +1,7 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+POST    /user                     controllers.Application.addUser()
+GET     /users                    controllers.Application.getUsers()
+GET     /user/:uuid                 controllers.Application.getUser(uuid: String)
+DELETE  /user/:uuid                 controllers.Application.deleteUser(uuid: String)

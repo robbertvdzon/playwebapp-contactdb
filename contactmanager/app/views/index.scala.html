@@ -1,0 +1,66 @@
+@()
+@main("Welcome to my contact manager!") {
+
+<script src='/assets/javascripts/jquery-2.1.1.min.js'></script>
+<script src='@routes.Assets.versioned("javascripts/index.js")'></script>
+
+<hr>
+Select a user:
+<select id="users">
+</select>
+<hr>
+
+<b>User details</b>
+<br>
+<a href=# onClick="deleteUser()">[Delete user]</a>
+<table>
+    <tr>
+        <td>name:</td>
+        <td><input id="name"></td>
+    </tr>
+    <tr>
+        <td>uuid:</td>
+        <td><input id="uuid"></td>
+    </tr>
+</table>
+
+<hr>
+<b>Contacts:</b>
+
+<ul id="contacts"></ul>
+
+<br><br><br>
+<hr>
+<br>
+<b>Add user:</b>
+
+<form action ="@routes.Application.addUser()" method="post">
+    <table>
+        <tr>
+            <td>name:</td>
+            <td><input name="name"></td>
+        </tr>
+    </table>
+    <button>Add user</button>
+</form>
+
+<br><br>
+
+<b>Add contact:</b>
+
+<form action ="@routes.Application.addContact()" method="post">
+    <input type="hidden" id="addContactUserUuid" name="userUuid">
+    <table>
+        <tr>
+            <td>name:</td>
+            <td><input name="name"></td>
+        </tr>
+        <tr>
+            <td>email:</td>
+            <td><input name="email"></td>
+        </tr>
+    </table>
+    <button>Add contact</button>
+</form>
+
+}

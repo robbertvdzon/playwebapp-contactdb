@@ -1,0 +1,8 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+POST    /contact                     controllers.Application.addContact()
+GET     /contacts/:userUuid              controllers.Application.getContacts(userUuid: String)
+GET     /contact/:uuid                 controllers.Application.getContact(uuid: String)
+DELETE  /contact/:uuid                 controllers.Application.deleteContact(uuid: String)
