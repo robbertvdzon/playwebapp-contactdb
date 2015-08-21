@@ -1,3 +1,3 @@
-cd c:\workspace\akka-contacts\contactmanager
-activator -Dhttp.port=9090 run
+cd /d %~dp0\contactmanager
+call activator -Dhttp.port=9090 run
 pause

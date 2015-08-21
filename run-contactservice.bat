@@ -1,3 +1,3 @@
-cd c:\workspace\akka-contacts\contact-service
-activator -Dhttp.port=9002 run
+cd /d %~dp0\contact-service
+call activator -Dhttp.port=9002 run
 pause
