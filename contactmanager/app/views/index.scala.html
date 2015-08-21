@@ -13,17 +13,31 @@ Select a user:
 
 <b>User details</b>
 <br>
-<a href=# onClick="deleteUser()">[Delete user]</a>
 <table>
     <tr>
         <td>name:</td>
-        <td><input id="name"></td>
+        <td><input id="name" readonly></td>
     </tr>
     <tr>
         <td>uuid:</td>
-        <td><input id="uuid"></td>
+        <td><input id="uuid" readonly></td>
     </tr>
 </table>
+
+<table>
+    <tr>
+        <td>
+            <button onClick="deleteUser()">Delete user</button>
+        </td>
+        <td>
+            <button onClick="document.getElementById('adduser').style.display = 'inline';">Add user</button>
+        </td>
+        <td>
+            <button onClick="document.getElementById('addcontact').style.display = 'inline';">Add contact</button>
+        </td>
+    </tr>
+</table>
+
 
 <hr>
 <b>Contacts:</b>
@@ -31,37 +45,43 @@ Select a user:
 <ul id="contacts"></ul>
 
 <br><br><br>
-<hr>
-<br>
-<b>Add user:</b>
+<div id="adduser" style="display: none">
+    <hr>
+    <br>
+    <b>Add user:</b>
 
-<form action ="@routes.Application.addUser()" method="post">
-    <table>
-        <tr>
-            <td>name:</td>
-            <td><input name="name"></td>
-        </tr>
-    </table>
-    <button>Add user</button>
-</form>
+    <form action="@routes.Application.addUser()" method="post">
+        <table>
+            <tr>
+                <td>name:</td>
+                <td><input name="name" autocomplete="off"></td>
+            </tr>
+        </table>
+        <button>Add user</button>
+    </form>
+    <button onClick="document.getElementById('adduser').style.display = 'none';">Cancel</button>
+</div>
 
-<br><br>
+<div id="addcontact" style="display: none">
+    <b>Add contact:</b>
+    <hr>
+    <br>
 
-<b>Add contact:</b>
-
-<form action ="@routes.Application.addContact()" method="post">
-    <input type="hidden" id="addContactUserUuid" name="userUuid">
-    <table>
-        <tr>
-            <td>name:</td>
-            <td><input name="name"></td>
-        </tr>
-        <tr>
-            <td>email:</td>
-            <td><input name="email"></td>
-        </tr>
-    </table>
-    <button>Add contact</button>
-</form>
+    <form action="@routes.Application.addContact()" method="post">
+        <input type="hidden" id="addContactUserUuid" name="userUuid">
+        <table>
+            <tr>
+                <td>name:</td>
+                <td><input name="name" autocomplete="off"></td>
+            </tr>
+            <tr>
+                <td>email:</td>
+                <td><input name="email" autocomplete="off"></td>
+            </tr>
+        </table>
+        <button>Add contact</button>
+    </form>
+    <button onClick="document.getElementById('addcontact').style.display = 'none';">Cancel</button>
+</div>
 
 }
