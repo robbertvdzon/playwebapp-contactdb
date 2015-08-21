@@ -2,10 +2,19 @@ $ ->
  $.get "/users", (users) ->
    $.each users, (index,user) ->
      $('#users').append("<option value=\"#{user.uuid}\">#{user.name} </option>");
+   loadSelectedUser();
    loadUser();
 
  $('#users').change ->
     loadUser();
+    saveSelectedUser();
+
+loadSelectedUser = () ->
+  $('#users option[value='+Cookies.set('lastuser')+']').attr('selected','selected');
+
+saveSelectedUser = () ->
+  useruid = $('#users :selected').val()
+  Cookies.set('lastuser', useruid);
 
 loadUser = () ->
     useruid = $('#users :selected').val()
